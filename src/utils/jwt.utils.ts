@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import config from 'config';
 
 const privateKey = config.get<string>('privateKey');
+
 const publicKey = config.get<string>('publicKey');
 
 export function signJwt(object: Object, options?: jwt.SignOptions | undefined) {
@@ -11,7 +12,7 @@ export function signJwt(object: Object, options?: jwt.SignOptions | undefined) {
   });
 }
 
-export function verifYJwt(token: string) {
+export function verifyJwt(token: string) {
   try {
     const decoded = jwt.verify(token, publicKey);
 

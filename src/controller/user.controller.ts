@@ -10,7 +10,7 @@ export async function createUserHandler(
 ) {
   try {
     const user = await createUser(req.body);
-    return res.send(omit(user.toJSON(), 'password'));
+    return res.send(omit(user, 'password'));
   } catch (e: any) {
     logger.error(e);
     // 409 : conflict
